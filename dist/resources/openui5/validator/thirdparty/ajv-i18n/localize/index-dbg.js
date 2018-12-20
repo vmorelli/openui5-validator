@@ -1,6 +1,12 @@
+;(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+    typeof define === 'function' && define.amd ? define(factory) :
+    global.ajvI18n = factory()
+}(this, (function () {
+
 'use strict';
 
-module.exports = {
+var ajvI18n = {
     en: require('./en'),
     ar: require('./ar'),
     cz: require('./cz'),
@@ -20,3 +26,7 @@ module.exports = {
     zh: require('./zh'),
     'zh-TW': require('./zh-TW'),
 };
+
+return ajvI18n;
+
+})));

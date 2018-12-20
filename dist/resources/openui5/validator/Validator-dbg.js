@@ -6,7 +6,8 @@ sap.ui.define([
   'sap/ui/core/MessageType',
   'sap/ui/core/message/Message',
   './thirdparty/ajv.min',
-  './library'
+  './library',
+  './thirdparty/ajv-i18n/localize/index'
 ], function($, UI5Object, UI5Control, ValueState, MessageType, Message) {
   'use strict';
 

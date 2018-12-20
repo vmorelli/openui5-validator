@@ -5,10 +5,10 @@ sap.ui.define([
   'sap/ui/core/ValueState',
   'sap/ui/core/MessageType',
   'sap/ui/core/message/Message',
+  './thirdparty/ajv-i18n/localize/index',
   './thirdparty/ajv.min',
-  './library',
-  './thirdparty/ajv-i18n/localize/index'
-], function($, UI5Object, UI5Control, ValueState, MessageType, Message) {
+  './library'
+], function($, UI5Object, UI5Control, ValueState, MessageType, Message, ajvI18n) {
   'use strict';
 
   /**
@@ -56,7 +56,7 @@ sap.ui.define([
    */
 
   const Validator = UI5Object.extend('openui5.validator.Validator', {
-    constructor: function(view, schema, opt) {
+    constructor: function(view, schema, opt, language) {
       if (!view || !schema) {
         throw new Error('Missing parameters!');
       }
@@ -69,6 +69,7 @@ sap.ui.define([
       this._errors = null;
       this._payload = null;
       this._validProperties = [];
+      this._language = language;
       this.addValidProperties(VALID_UI5_CONTROL_PROPERTIES);
     }
   });
@@ -96,6 +97,7 @@ sap.ui.define([
     if (isValid) {
       this._errors = null;
     } else {
+      if (this._language) { ajvI18n[this._language].localize(this._validate.errors); }
       this._errors = this._processValidationErrors(this._validate.errors);
     }
     return isValid;

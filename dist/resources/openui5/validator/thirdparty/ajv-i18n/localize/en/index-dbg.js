@@ -12,78 +12,76 @@ i18n.localize = function(errors) {
     var out;
     switch (e.keyword) {
       case '$ref':
-        out = 'no se puede resolver la referencia ' + (e.params.ref);
+        out = 'can\\\'t resolve reference ' + (e.params.ref);
         break;
       case 'additionalItems':
         out = '';
         var n = e.params.limit;
-        out += 'no debe tener más de ' + (n) + ' elemento';
+        out += 'should not have more than ' + (n) + ' item';
         if (n != 1) {
           out += 's';
         }
         break;
       case 'additionalProperties':
-        out = 'no debe tener propiedades adicionales';
+        out = 'should not have additional properties';
         break;
       case 'anyOf':
-        out = 'debe coincidir con algún esquema en "anyOf"';
+        out = 'should match some schema in "anyOf"';
         break;
       case 'const':
-        out = 'debe ser igual a la constante';
+        out = 'should be equal to constant';
         break;
       case 'contains':
         out = 'should contain a valid item';
         break;
       case 'custom':
-        out = 'debe pasar la validación de palabra clave "' + (e.keyword) + '"';
+        out = 'should pass "' + (e.keyword) + '" keyword validation';
         break;
       case 'dependencies':
         out = '';
         var n = e.params.depsCount;
-        out += 'debe contener la';
-        if (n != 1) {
-          out += 's';
+        out += 'should have propert';
+        if (n == 1) {
+          out += 'y';
+        } else {
+          out += 'ies';
         }
-        out += ' propiedad';
-        if (n != 1) {
-          out += 'es';
-        }
-        out += ' ' + (e.params.deps) + ' cuando la propiedad ' + (e.params.property) + ' se encuentra presente';
+        out += ' ' + (e.params.deps) + ' when property ' + (e.params.property) + ' is present';
         break;
       case 'enum':
-        out = 'deber ser igual a uno de los valores predefinidos';
+        out = 'should be equal to one of predefined values';
         break;
       case 'exclusiveMaximum':
         out = '';
         var cond = e.params.comparison + " " + e.params.limit;
-        out += 'debe ser ' + (cond);
+        out += 'should be ' + (cond);
         break;
       case 'exclusiveMinimum':
         out = '';
         var cond = e.params.comparison + " " + e.params.limit;
-        out += 'debe ser ' + (cond);
+        out += 'should be ' + (cond);
         break;
       case 'false schema':
         out = 'boolean schema is false';
         break;
       case 'format':
-        out = 'debe coincidir con el formato "' + (e.params.format) + '"';
+        out = 'should match format "' + (e.params.format) + '"';
         break;
       case 'formatExclusiveMaximum':
-        out = 'formatExclusiveMaximum debe ser booleano';
+        out = 'formatExclusiveMaximum should be boolean';
         break;
       case 'formatExclusiveMinimum':
-        out = 'formatExclusiveMinimum debe ser booleano';
+        out = 'formatExclusiveMinimum should be boolean';
         break;
       case 'formatMaximum':
         out = '';
         var cond = e.params.comparison + " " + e.params.limit;
-        out += 'debe ser ' + (cond);
+        out += 'should be ' + (cond);
         break;
       case 'formatMinimum':
         out = '';
         var cond = e.params.comparison + " " + e.params.limit;
-        out += 'debe ser ' + (cond);
+        out += 'should be ' + (cond);
         break;
       case 'if':
         out = 'should match "' + (e.params.failingKeyword) + '" schema';
@@ -91,12 +89,12 @@ i18n.localize = function(errors) {
       case 'maximum':
         out = '';
         var cond = e.params.comparison + " " + e.params.limit;
-        out += 'debe ser ' + (cond);
+        out += 'should be ' + (cond);
         break;
       case 'maxItems':
         out = '';
         var n = e.params.limit;
-        out += 'no debe contener más de ' + (n) + ' elemento';
+        out += 'should not have more than ' + (n) + ' item';
         if (n != 1) {
           out += 's';
         }
@@ -104,28 +102,30 @@ i18n.localize = function(errors) {
       case 'maxLength':
         out = '';
         var n = e.params.limit;
-        out += 'no debe contener más de ' + (n) + ' caracter';
+        out += 'should not be longer than ' + (n) + ' character';
         if (n != 1) {
-          out += 'es';
+          out += 's';
         }
         break;
       case 'maxProperties':
         out = '';
         var n = e.params.limit;
-        out += 'no debe contener más de ' + (n) + ' propiedad';
-        if (n != 1) {
-          out += 'es';
+        out += 'should not have more than ' + (n) + ' propert';
+        if (n == 1) {
+          out += 'y';
+        } else {
+          out += 'ies';
         }
         break;
       case 'minimum':
         out = '';
         var cond = e.params.comparison + " " + e.params.limit;
-        out += 'debe ser ' + (cond);
+        out += 'should be ' + (cond);
         break;
       case 'minItems':
         out = '';
         var n = e.params.limit;
-        out += 'no debe contener menos de ' + (n) + ' elemento';
+        out += 'should not have less than ' + (n) + ' item';
         if (n != 1) {
           out += 's';
         }
@@ -133,48 +133,50 @@ i18n.localize = function(errors) {
       case 'minLength':
         out = '';
         var n = e.params.limit;
-        out += 'no debe contener menos de ' + (n) + ' caracter';
+        out += 'should not be shorter than ' + (n) + ' character';
         if (n != 1) {
-          out += 'es';
+          out += 's';
         }
         break;
       case 'minProperties':
         out = '';
         var n = e.params.limit;
-        out += 'no debe contener menos de ' + (n) + ' propiedad';
-        if (n != 1) {
-          out += 'es';
+        out += 'should not have less than ' + (n) + ' propert';
+        if (n == 1) {
+          out += 'y';
+        } else {
+          out += 'ies';
         }
         break;
       case 'multipleOf':
-        out = 'debe ser múltiplo de ' + (e.params.multipleOf);
+        out = 'should be a multiple of ' + (e.params.multipleOf);
         break;
       case 'not':
-        out = 'no debe ser válido según el esquema en "not"';
+        out = 'should not be valid according to schema in "not"';
         break;
       case 'oneOf':
-        out = 'debe coincidir con un solo esquema en "oneOf"';
+        out = 'should match exactly one schema in "oneOf"';
         break;
       case 'pattern':
-        out = 'debe coincidir con el patron "' + (e.params.pattern) + '"';
+        out = 'should match pattern "' + (e.params.pattern) + '"';
         break;
       case 'patternRequired':
-        out = 'la propiedad debe coincidir con el patrón "' + (e.params.missingPattern) + '"';
+        out = 'should have property matching pattern "' + (e.params.missingPattern) + '"';
         break;
       case 'propertyNames':
         out = 'property name \'' + (e.params.propertyName) + '\' is invalid';
         break;
       case 'required':
-        out = 'debe tener la propiedad requerida ' + (e.params.missingProperty);
+        out = 'should have required property ' + (e.params.missingProperty);
         break;
       case 'switch':
-        out = 'debe pasar la validación "switch" de palabra clave, el caso ' + (e.params.caseIndex) + ' falló';
+        out = 'should pass "switch" keyword validation, case ' + (e.params.caseIndex) + ' fails';
         break;
       case 'type':
-        out = 'debe ser ' + (e.params.type);
+        out = 'should be ' + (e.params.type);
         break;
       case 'uniqueItems':
-        out = 'no debe contener elementos duplicados, (los elementos ## ' + (e.params.j) + ' y ' + (e.params.i) + ' son idénticos)';
+        out = 'should not have duplicate items (items ## ' + (e.params.j) + ' and ' + (e.params.i) + ' are identical)';
         break;
       default:
         continue;

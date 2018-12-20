@@ -37,12 +37,14 @@
  */
 
 sap.ui.define([
+    './en/index',
     './es/index'
 ],
-	function(es) {
+	function(en, es) {
 	"use strict";
 
 	var ajvI18n = {
+        en: en,
         es: es
     };
 

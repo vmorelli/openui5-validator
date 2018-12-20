@@ -1,4 +1,4 @@
 /*!
  * ${copyright}
  */
-sap.ui.define(["./es/index"],function(e){"use strict";var i={es:e};return i},true);
+sap.ui.define(["./en/index","./es/index"],function(e,n){"use strict";var i={en:e,es:n};return i},true);

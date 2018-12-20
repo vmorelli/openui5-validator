@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+return {
     en: require('./en'),
     ar: require('./ar'),
     cz: require('./cz'),

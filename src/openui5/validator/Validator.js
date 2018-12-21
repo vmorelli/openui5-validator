@@ -213,6 +213,9 @@ sap.ui.define([
           const getPropertyMethod = ['get', validProperty.substring(0, 1).toUpperCase(), validProperty.substring(1)].join('');
           if (control[getPropertyMethod]) {
             value = control[getPropertyMethod]();
+            if ( control.getMetadata()._sClassName !== 'sap.ui.unified.Currency') {
+              value = value[0];
+            }
           }
         }
       }
